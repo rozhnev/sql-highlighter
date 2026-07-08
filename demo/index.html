@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>sql-highlighter demo</title>
+<link rel="stylesheet" href="../sql-highlighter.css">
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        max-width: 760px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        background: #fff;
+        color: #24292e;
+    }
+    html[data-theme="dark"] body {
+        background: #0d1117;
+        color: #f0f6fc;
+    }
+    pre {
+        margin: 1.5rem 0;
+        border-radius: 6px;
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+    button {
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+    }
+</style>
+</head>
+<body>
+    <h1>sql-highlighter demo</h1>
+    <button id="theme-toggle">Toggle dark mode</button>
+
+    <pre><code class="language-sql">-- find the top 5 customers by total spend
+SELECT
+    c.id,
+    c.name,
+    SUM(o.total) AS lifetime_value,
+    COUNT(o.id) AS order_count
+FROM customers AS c
+LEFT JOIN orders AS o ON o.customer_id = c.id
+WHERE o.status <> 'cancelled'
+    AND o.created_at >= '2024-01-01'
+GROUP BY c.id, c.name
+HAVING SUM(o.total) > 100
+ORDER BY lifetime_value DESC
+LIMIT 5;
+
+/* schema for reference */
+CREATE TABLE customers (
+    id INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+
+<script src="../sql-highlighter.js"></script>
+<script>
+    SQLHighlighter.highlightCodeBlocks();
+
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    });
+</script>
+</body>
+</html>
