@@ -4,6 +4,8 @@
     display: block;
     overflow-x: auto;
     padding: 1em;
+    --sql-hl-text: #333333;
+    --sql-hl-background: #eeeeee;
     --sql-hl-keyword: #aa0d91;
     --sql-hl-builtin: #5c2699;
     --sql-hl-number: #1c00cf;
@@ -14,6 +16,8 @@
 /* falls back to the OS/browser dark preference when the page has no explicit theme */
 @media (prefers-color-scheme: dark) {
     html:not([data-theme]) .language-sql {
+        --sql-hl-text: #ffffff;
+        --sql-hl-background: #484F58;
         --sql-hl-keyword: #ff7b72;
         --sql-hl-builtin: #d2a8ff;
         --sql-hl-number: #79c0ff;
@@ -24,12 +28,18 @@
 }
 /* explicit theme toggle takes priority over the OS preference */
 [data-theme="dark"] .language-sql {
+    --sql-hl-text: #ffffff;
+    --sql-hl-background: #484F58;
     --sql-hl-keyword: #ff7b72;
     --sql-hl-builtin: #d2a8ff;
     --sql-hl-number: #79c0ff;
     --sql-hl-comment: #8b949e;
     --sql-hl-string: #a5d6ff;
     --sql-hl-type: #30b659;
+}
+.language-sql {
+    background: var(--sql-hl-background);
+    color: var(--sql-hl-text, #24292e);
 }
 .language-sql .keyword {
     color: var(--sql-hl-keyword);
