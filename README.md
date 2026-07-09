@@ -29,7 +29,14 @@ or via CDN:
 ## Usage
 
 ```html
-<pre><code class="language-sql">SELECT id, name FROM users WHERE created_at > '2024-01-01'</code></pre>
+<pre>
+  <code class="language-sql">
+    SELECT
+      id, name 
+    FROM users 
+    WHERE created_at > '2024-01-01'
+  </code>
+</pre>
 
 <script src="sql-highlighter.min.js"></script>
 <link rel="stylesheet" href="sql-highlighter.min.css">
