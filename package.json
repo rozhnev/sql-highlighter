@@ -31,11 +31,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/REPLACE_ME/sql-highlighter.git"
+    "url": "git+https://github.com/rozhnev/sql-highlighter.git"
   },
-  "homepage": "https://github.com/REPLACE_ME/sql-highlighter#readme",
+  "homepage": "https://github.com/rozhnev/sql-highlighter#readme",
   "bugs": {
-    "url": "https://github.com/REPLACE_ME/sql-highlighter/issues"
+    "url": "https://github.com/rozhnev/sql-highlighter/issues"
   },
   "devDependencies": {
     "terser": "^5.27.0",
