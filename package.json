@@ -1,0 +1,44 @@
+{
+  "name": "sql-highlighter",
+  "version": "1.0.0",
+  "description": "Lightweight, dependency-free SQL syntax highlighter for the browser (keywords, functions, data types, strings, comments, numbers).",
+  "main": "sql-highlighter.js",
+  "browser": "sql-highlighter.min.js",
+  "module": "sql-highlighter.js",
+  "unpkg": "sql-highlighter.min.js",
+  "jsdelivr": "sql-highlighter.min.js",
+  "files": [
+    "sql-highlighter.js",
+    "sql-highlighter.min.js",
+    "sql-highlighter.min.js.map",
+    "sql-highlighter.css",
+    "sql-highlighter.min.css"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "minify:js": "terser sql-highlighter.js -c -m -o sql-highlighter.min.js --source-map \"url='sql-highlighter.min.js.map'\"",
+    "minify:css": "cleancss -o sql-highlighter.min.css sql-highlighter.css",
+    "build": "npm run minify:js && npm run minify:css"
+  },
+  "keywords": [
+    "sql",
+    "syntax-highlighting",
+    "highlighter",
+    "code-highlighting",
+    "prism",
+    "highlight.js"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/REPLACE_ME/sql-highlighter.git"
+  },
+  "homepage": "https://github.com/REPLACE_ME/sql-highlighter#readme",
+  "bugs": {
+    "url": "https://github.com/REPLACE_ME/sql-highlighter/issues"
+  },
+  "devDependencies": {
+    "terser": "^5.27.0",
+    "clean-css-cli": "^5.6.3"
+  }
+}
