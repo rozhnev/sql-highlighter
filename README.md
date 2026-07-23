@@ -49,6 +49,24 @@ By default it scans the page for `pre code` elements and highlights the ones
 with a `language-sql` class. Anything else is left untouched (there's a
 `highlightCodeCommon` hook you can extend for non-SQL languages).
 
+Here it is on a query using date/time functions (examples adapted from
+[sqltest.online's date and time functions lesson](https://sqltest.online/en/lesson/sql-functions/date-and-time-functions)):
+
+```html
+<pre>
+  <code class="language-sql">
+    SELECT
+      rental_date,
+      DATE_ADD(rental_date, INTERVAL 7 DAY) AS return_due,
+      DATEDIFF(return_date, rental_date) AS rental_duration,
+      YEAR(rental_date) AS rental_year
+    FROM rental
+    WHERE rental_date > DATE_SUB(CURRENT_DATE, INTERVAL 30 DAY)
+    LIMIT 3
+  </code>
+</pre>
+```
+
 ### Module usage
 
 ```js
